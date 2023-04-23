@@ -19,6 +19,8 @@ To Use WinScript, downlaod the interperter, then run it using
 
 ![image](https://user-images.githubusercontent.com/103849459/233812387-cad0cbbd-132b-4423-b4e7-636053e7a921.png)
 
+{make sure to be as the same directory as the winsc interperter!!!!)
+
 to use the echo fucntion, use echo then type what you want to print
 ![image](https://user-images.githubusercontent.com/103849459/233812449-03cb02d3-b0a8-4416-9fda-9bf89f61ae3b.png)
 
