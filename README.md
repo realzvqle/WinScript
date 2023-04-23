@@ -1,6 +1,6 @@
 # WinScript
 
-WinScript is a high-level Scripting Language designed to simplify and automate common tasks in Windows environments. It is easy to learn and use, making it ideal for users with little to no programming experience. WinScript is based on C, but it has a simplified syntax that is easier to read and write.
+WinScript is a Scripting Language designed to simplify and automate common tasks in Windows environments. It is easy to learn and use, making it ideal for users with little to no programming experience. WinScript is based on C, but it has a simplified syntax that is easier to read and write.
 
 WinScript is executed by a WinScript interpreter, which is a standalone program that reads and executes WinScript Scripts. The interpreter can be invoked from the command line or from within a batch file.
 
