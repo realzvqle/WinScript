@@ -1,15 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <string.h>
-#include <tchar.h>
+#include "winsc.h"
+#include "commands.c"
+
+
+/******************************************************************************************************
+ * WINSCRIPT SOURCE CODE
+ * MADE BY ZVQLE
+ * Check commands.c to see all commands codes
+ * check winsc.h to see headers
+*********************************************************************************************************/
+
 
 int main(int argc, char *argv[])
 {
     FILE * fp;
     char pri[255];
     char * word;
+    char * nextWord;
     fp = fopen(argv[1], "r");
+    char input[255];
     if(fp == NULL)
     {
         printf("Error, Cannot Open File\n");
@@ -23,65 +31,56 @@ int main(int argc, char *argv[])
            char cmd[255];
            strcpy(cmd, word);
            word = strtok(NULL, "\n");
+           
+           if(strcmp(cmd, "+") == 0)
+            {
+                plus(word, nextWord);
+            }
+           if(strcmp(cmd, "input") == 0)
+           {  
+               inputs(word, input);
+           } 
            if(strcmp(cmd, "echo") == 0)
            {
-            printf("%s\n", word);
+             echo(word, input);
+           }
+           if(strcmp(cmd, "echol") == 0)
+           {
+              echol(word, input);
            }
            if(strcmp(cmd, "start") == 0)
-           {       
-
-            STARTUPINFOA si = {0};
-            PROCESS_INFORMATION pi = {0};
-
-            if(ShellExecute(NULL, "open", word, NULL, NULL, SW_SHOWDEFAULT) == 0)
-                printf("There was an error, error number\n");
-              
+           {     
+              start(word);
            }  
            if(strcmp(cmd, "sudo") == 0)
            {       
-
-            STARTUPINFOA si = {0};
-            PROCESS_INFORMATION pi = {0};
-
-            if(ShellExecute(NULL, "runas", word, NULL, NULL, SW_SHOWDEFAULT) == 0)
-                printf("There was an error, error number\n");
-              
+               sudo(word);
            }  
            if(strcmp(cmd, "cmd") == 0)
            {       
-            system(word);
-              
+              system(word);
            } 
            if(strcmp(cmd, "msgbox") == 0)
            {       
-            if(MessageBox(NULL, word, "WinScript", MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
-            {
-                exit(0);
-
-            }
-
-              
+              msgbox(word);
            }     
-            if(strcmp(cmd, "msgbox") == 0)
+           if(strcmp(cmd, "msgbo") == 0)
            {       
-            if(MessageBox(NULL, word, "WinScript", MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
-            {
-                exit(0);
-
-            }
-
-              
+              msgbox(word);
            }  
            if(strcmp(cmd, "about") == 0)
            {       
-            if(MessageBox(NULL, "WinScript Version 0.1 Beta\nMade By zvqle\ngithub.com\\realzvqle\nyoutube.com\\zvqle\n", "WinScript", MB_OKCANCEL | MB_ICONQUESTION) != IDOK)
-            {
-                exit(0);
-
-            }
-
-              
-           }  
+              about();
+           } 
+           if(strcmp(cmd, "newline") == 0)
+           {   
+              newline();
+           } 
+           if(strcmp(cmd, "pause") == 0)
+           {   
+              pause();
+           } 
+          
         }
 
 
